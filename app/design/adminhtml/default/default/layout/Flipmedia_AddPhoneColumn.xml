@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- main layout definition that adds the column -->
+    <add_order_grid_column_handle>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>customer_phone</columnId>
+                <arguments module="ordermanager" translate="header">
+                    <header>Phone</header>
+					<index>customer_phone</index>
+                    <renderer>Flipmedia_AddPhoneColumn_Adminhtml_Block_Widget_Grid_Column_Renderer_Phone</renderer>
+                    <type>text</type>
+                    <sortable>true</sortable>
+                </arguments>
+                <after>billing_name</after>
+            </action>
+        </reference>
+    </add_order_grid_column_handle>
+ 
+    <!-- order grid action -->
+    <adminhtml_sales_order_grid>
+        <!-- apply the layout handle defined above -->
+        <update handle="add_order_grid_column_handle" />
+    </adminhtml_sales_order_grid>
+ 
+    <!-- order grid view action -->
+    <adminhtml_sales_order_index>
+        <!-- apply the layout handle defined above -->
+        <update handle="add_order_grid_column_handle" />
+    </adminhtml_sales_order_index>
+</layout>

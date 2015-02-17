@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Flipmedia_AddPhoneColumn>
+            <version>1.0.0</version>
+        </Flipmedia_AddPhoneColumn>
+    </modules>
+    <global>
+        <models>
+            <Flipmedia_AddPhoneColumn>
+                <class>Flipmedia_AddPhoneColumn_Model</class>
+            </Flipmedia_AddPhoneColumn>
+        </models>
+        <events>
+            <!-- Add observer configuration -->
+            <sales_order_resource_init_virtual_grid_columns>
+                <observers>
+                    <Flipmedia_AddPhoneColumn>
+                        <model>Flipmedia_AddPhoneColumn/Observer</model>
+                        <method>addColumnToResource</method>
+                    </Flipmedia_AddPhoneColumn>
+                </observers>
+            </sales_order_resource_init_virtual_grid_columns>
+        </events>
+        <resources>
+            <!-- initialize sql upgrade setup -->
+            <Flipmedia_AddPhoneColumn_setup>
+                <setup>
+                    <module>Flipmedia_AddPhoneColumn</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+            </Flipmedia_AddPhoneColumn_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <layout>
+             <!-- layout upgrade configuration -->
+            <updates>
+                <Flipmedia_AddPhoneColumn>
+                    <file>Flipmedia_AddPhoneColumn.xml</file>
+                </Flipmedia_AddPhoneColumn>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>
